@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main-box {
+    display: flex;
+    justify-content: center;
+    background-color: yellow;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    margin: 10px;
+}
+
+.QandA-box {
+    background-color: green;
+    padding: 10px;
+    margin: px;
+    width: 75%;
+    height: 700px;
+}
+
+.QandA-box p {
+    text-align: center;
+}
+
+.view-high-scoreBtn {
+    background-color: blanchedalmond;
+    width: 7px;
+    height: 7px;
+}
+
+
