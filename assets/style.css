@@ -29,9 +29,14 @@
 
 /* buttons */
 
-.score-Btn {
-    position: relative;
-    left: 10px;
+.score-holder {
+    width: 1px; 
+    margin: 100px auto;
+    
+}
+
+.score-ntn {
+margin-left: -50px;
 }
 
 #highscore-Btn {
