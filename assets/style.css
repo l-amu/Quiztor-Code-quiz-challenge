@@ -30,8 +30,9 @@
 /* buttons */
 
 .score-holder {
-    width: 1px; 
-    margin: 100px auto;
+    display: flex;
+    margin-left: 10px;
+    
     
 }
 
@@ -41,4 +42,10 @@ margin-left: -50px;
 
 #highscore-Btn {
     color: purple;
+}
+
+
+#start-quize {
+    color: purple;
+   
 }
