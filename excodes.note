@@ -55,3 +55,19 @@
 }
 
 
+
+  // var questionBoxEl = document.createElement('textarea').readOnly
+  // add for loop or array?
+  // questionBoxEl.textcontent = quize.question;
+  // or
+  // document.getElementById('questionBoxEl').textContent 
+
+
+    
+    // for (let i = 0; i < quize.length; i++) {
+    //   // var pickchoices = quize.answer
+    //   // answers.push(pickchoices);  
+    //   // console.log(pickchoices) 
+    //   console.log("this is for loop", quize[1][0])
+    // }
+};

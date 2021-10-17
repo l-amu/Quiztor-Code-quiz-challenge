@@ -85,3 +85,11 @@ margin-left: -50px;
 .hide {
     display: none;
 }
+
+.answer-container {
+    display: flex;
+    
+    flex-direction: column;
+    color: red;
+
+}

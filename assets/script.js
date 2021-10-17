@@ -10,7 +10,7 @@ var quize = [
     {
         question: "Commonly used data types Do not include:",
         choices: ["strings", "booleans", "alerts", "numbers"],
-        answer: "alerts"
+        answer: ["alerts", "true"]
   
       },
       {
@@ -84,41 +84,37 @@ function startQuestions() {
   questionHolder.appendChild(displayQuestions);
   questionHolder.classList.remove('hide')
 
-  var c = document.getElementById('answers')
+  // this peice of code is added with the suggestion of my tutor
+  var answerEl = document.getElementById('answers')
   for (let index = 0; index < 4; index++) {
     var displayAnswers = document.createElement('button')
     displayAnswers.textContent = index + 1 + "." + quize[0].choices[index]
-    c.appendChild(displayAnswers) 
-    c.classList.remove('hide')
-  }
-  
-  
-
-  // var questionBoxEl = document.createElement('textarea').readOnly
-  // add for loop or array?
-  // questionBoxEl.textcontent = quize.question;
-  // or
-  // document.getElementById('questionBoxEl').textContent 
-
-
+    answerEl.appendChild(displayAnswers) 
+    answerEl.classList.remove('hide')
     
-    // for (let i = 0; i < quize.length; i++) {
-    //   // var pickchoices = quize.answer
-    //   // answers.push(pickchoices);  
-    //   // console.log(pickchoices) 
-    //   console.log("this is for loop", quize[1][0])
-    // }
+    displayAnswers.addEventListener('click', startQuestions)
+    console.log(displayAnswers);
+
+    if(quize[0].choices[2] === true) {
+      alert('true')
+    }else if(quize[0].choices[0][1][3] === false){
+      alert('false')
+    }
+  }
 };
+  
+  
+
 
 function highScoreHolder() {
     alert("view highscore")
     console.log(highScoreHolder)
 };
 
-// function generatedQuestion() {
-//   var questionText = document.querySelector("#question-box")
-//   questionText.value= quize.question
-// };
+function answerBtn() {
+  displayAnswers.addEventListener('click', alert("help"))
+  console.log(displayAnswers)
+};
 
 
 
