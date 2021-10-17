@@ -4,48 +4,84 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: grey;
+    margin: 50px;
+   
+
+}
 .container {
     display: flex;
-    justify-content: center;
-    background-color: grey;
+    flex-wrap: wrap;
+    
+    background-color: wheat;
     width: 100%;
-    height: auto;
-    padding: 10px;
-    margin: 10px;
+    height: 100vh;
+    /* max-width: 80%; */
+    border-radius: 5px;
+    
 }
 
-.start-page {
+
+
+
+
+.question-box {
+    background-color: rebeccapurple;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    background-color: wheat;
-    width: 85%;
-    height: 700px;
+    display: flex;
+    margin: auto;
+    height: 24px;
+    width: 24px;
+
+
 }
+
 
 .start-page p {
     text-align: center;
 }
 
+
+
 /* buttons */
 
-.score-holder {
-    display: flex;
-    margin-left: 10px;
-    
-    
-}
+
 
 .score-ntn {
 margin-left: -50px;
 }
 
 #highscore-Btn {
+    
     color: purple;
+    margin-top: 10px;
+    margin-left: 20px;
+    border-radius: 5px;
 }
 
+.start-holder {
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center; */
+    margin-left: 304px;
+    margin-top: 100px;
+    text-align: center;
+    
+}
 
 #start-quize {
     color: purple;
-   
+    margin-top: 4px;
+    margin-left: 70px;
+}
+
+/* #question-page{
+
+} */
+
+.hide {
+    display: none;
 }

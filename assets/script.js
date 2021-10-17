@@ -1,46 +1,113 @@
 var startEl = document.querySelector("#start-quize");
 var viewHighScoreEl = document.querySelector("#highscore-Btn")
+var timerEl = document.getElementById("countdown")
+var questionPage = document.questionPage;
+var wins = 0;
+var losses = 0;
 answers = []
 score = []
 var quize = [
     {
-        question: "Commonly used datas do not include:",
-        choices: ["commas", "", "three", "fpor"],
-        answer: "dog"
+        question: "Commonly used data types Do not include:",
+        choices: ["strings", "booleans", "alerts", "numbers"],
+        answer: "alerts"
   
       },
       {
-        question: "what is my name",
-        choices: ["almsdfvsek", "dogsdfs", "three", "fpor"],
-        answer: "three"
+        question: "The condtion in an if/else statment is enclosed with______.",
+        choices: ["quotes", "curly brackets", "paranthesis", "square brackets"],
+        answer: "paranthesis"
       },
       {
-        question: "what is my name",
-        choices: ["almek454", "d4545og", "three", "fpor"],
-        answer: "fpor"
-      }
+        question: "Array in javascript can be used to store___________.",
+        choices: ["number and strings", "other arrays", "booleans", "all of the above"],
+        answer: "all of the above"
+      },
+      {
+        question: "String values must be enclosed within_________when being assigned to variables.",
+        choices: ["commas", "curly brackets", "quotes", "paranthesis"],
+        answer: "quotes"
+      },
+      {
+        question: "A very useful tool used during development and debugging for printing content to the debugger is",
+        choices: ["javascript", "terminal/bash", "for loops", "console.log"],
+        answer: "console.log"
+      },
+      {
+        question: "String values must be enclosed within_________when being assigned to variables.",
+        choices: ["commas", "curly brackets", "quotes", "paranthesis"],
+        answer: "quotes"
+      }    
   ]
+  var indexQuestion = [0]
   console.log(quize)
-  console.log(quize[1].choices[1]);
-  
-
-
-
+  // console.log(quize[1].choices[1]);
+// starts everything
 function startQuize() {
-    questions();
-    alert("quize test");
-    console.dir(startQuize);
+    // countdown();
+    startQuestions();  
 };
 
-function questions() {
+// function countdown() {
+//     var timeleft = 10;
+
+//     var timeInterval = setInterval(function() {
+//         if (timeleft > 1){
+//             timerEl.textContent = timeleft + "seconds left"
+//             timeleft--;
+//         }
+//         else if(timeleft === 1) {
+//             timerEl.textContent = timeleft + "second left"
+//             timeleft--;
+//         }
+//         else{
+//             timerEl.textContent = "";
+//             clearInterval(timeInterval)
+//             timeOver();
+
+//         }
+        
+//     }, 7000);
+// };
+
+// function timeOver() {
+//     alert("timer test")
+
+// }
+
+function startQuestions() {
+  var hideStartQuize = document.querySelector('.start-holder')
+  var questionHolder = document.getElementById('questions')
+  hideStartQuize.classList.add('hide');
+  var displayQuestions = document.createElement('h1');
+  displayQuestions.textContent = quize[0].question
+  questionHolder.appendChild(displayQuestions);
+  questionHolder.classList.remove('hide')
+
+  var c = document.getElementById('answers')
+  for (let index = 0; index < 4; index++) {
+    var displayAnswers = document.createElement('button')
+    displayAnswers.textContent = index + 1 + "." + quize[0].choices[index]
+    c.appendChild(displayAnswers) 
+    c.classList.remove('hide')
+  }
+  
+  
+
+  // var questionBoxEl = document.createElement('textarea').readOnly
+  // add for loop or array?
+  // questionBoxEl.textcontent = quize.question;
+  // or
+  // document.getElementById('questionBoxEl').textContent 
+
+
     
-    for (let i = 0; i < quize.length; i++) {
-        var response = response.
-        askedquestions.push()
-    }
-
-
-
+    // for (let i = 0; i < quize.length; i++) {
+    //   // var pickchoices = quize.answer
+    //   // answers.push(pickchoices);  
+    //   // console.log(pickchoices) 
+    //   console.log("this is for loop", quize[1][0])
+    // }
 };
 
 function highScoreHolder() {
@@ -48,6 +115,10 @@ function highScoreHolder() {
     console.log(highScoreHolder)
 };
 
+// function generatedQuestion() {
+//   var questionText = document.querySelector("#question-box")
+//   questionText.value= quize.question
+// };
 
 
 
@@ -61,4 +132,4 @@ function highScoreHolder() {
 
 
 startEl.addEventListener("click", startQuize)
-viewHighScoreEl.addEventListener("submit", highScoreHolder)
+// viewHighScoreEl.addEventListener("submit", highScoreHolder)
