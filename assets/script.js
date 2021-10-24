@@ -1,8 +1,8 @@
 var startEl = document.querySelector("#start-quize");
 var viewHighScoreEl = document.querySelector("#highscore-Btn")
-var timerEl = document.getElementById("#countdown")
+var timerEl = document.getElementById("countdown")
 
-let quizeData = [
+var quizeData = [
     {
         question: "Commonly used data types Do not include:",
         choices: ["strings", "booleans", "alerts", "numbers"],
@@ -37,6 +37,7 @@ let quizeData = [
   ]
 
   var timeLeft = 10;
+  var currentQuestion = 0;
 
   function startQuize() {
     timer();
@@ -46,22 +47,21 @@ let quizeData = [
   function timer() {
     var timeInterval = setInterval(function() {
         if (timeLeft > 1) {
-            timerEl.textContent = timeLeft + ' seconds remaining';
             timeLeft--;
-          clearInterval(timeInterval);
+            timerEl.textContent = "Time: " + timeLeft;          
         } else {
-            // console.log(timeInterval--)
-            alert("time over");
+            clearInterval(timeInterval);
         }
       }, 1000);
       console.log("function", timeInterval)
   };
 
-  function generateQuestion() {
-    // .forEach(element => console.log(element));
+//   function generateQuestion() {
+//     currentQuestion = quizeData[0]
+//     quizeData.forEach(question, 0 => console.log("element", quizeData));
 
       
-  };
+//   };
 
   
 

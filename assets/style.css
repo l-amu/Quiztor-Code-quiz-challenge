@@ -56,13 +56,18 @@ body {
     bottom: 220px;
     left: 320px;
     margin: 10px;
-    background-color: #ffe23f;
-    height: 30px;
-    width: 80px;
+    background-color: whitesmoke;
+    height: 22px;
+    width: 100px;
+    border-radius: 4px;
 }
 
 #countdown {
-    color: red;
+    position: relative;
+    top: 2px;
+    padding: 2px;
+    text-align: center;
+    color:black;
 }
 
 
