@@ -71,3 +71,31 @@
     //   console.log("this is for loop", quize[1][0])
     // }
 };
+
+
+// function countdown() {
+//     var timeleft = 10;
+
+//     var timeInterval = setInterval(function() {
+//         if (timeleft > 1){
+//             timerEl.textContent = timeleft + "seconds left"
+//             timeleft--;
+//         }
+//         else if(timeleft === 1) {
+//             timerEl.textContent = timeleft + "second left"
+//             timeleft--;
+//         }
+//         else{
+//             timerEl.textContent = "";
+//             clearInterval(timeInterval)
+//             timeOver();
+
+//         }
+        
+//     }, 7000);
+// };
+
+// function timeOver() {
+//     alert("timer test")
+
+// }

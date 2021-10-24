@@ -9,16 +9,24 @@
     <title>Quiztor</title>
 </head>
 <main class="container">
-    <section id="question-page" >
-        <div class="start-holder ">
+    <section class="front" id="question-page" >
+        <div class="Score-holder">
+            <button class="score-btn" id="highscore-Btn">View High Score</button>
+        </div>
+
+        <div class="start-holder">
             <p>
                 code quize challenge!
             </p>
             <p>Click Start to start the Quize.</p>
-            <button id="start-quize">Start</button>
+            <div>
+                <button id="start-quize">Start</button>
+
+            </div>
         </div>
+
         <div class="timer-holder">
-            <button id="countdown"></button>
+            <h2 id="countdown"></h2>
         </div>
         <!-- where the answer should appear -->
         <div class="question-container hide" id="questions">
@@ -31,15 +39,7 @@
         
     </section>
 
-    <section class="start-page">
-        <div class="Score-holder">
-            <button class="score-btn" id="highscore-Btn">View High Score</button>
-        </div>
-        
-    </section>
-
-
-
+    
 </main>
 
 
