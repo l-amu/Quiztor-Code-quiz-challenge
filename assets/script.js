@@ -46,8 +46,8 @@ let quizeData = [
   function timer() {
     var timeInterval = setInterval(function() {
         if (timeLeft > 1) {
-          timerEl.textContent =  timeLeft + ' seconds remaining';
-          timeInterval--;
+            timerEl.textContent = timeLeft + ' seconds remaining';
+            timeLeft--;
           clearInterval(timeInterval);
         } else {
             // console.log(timeInterval--)
