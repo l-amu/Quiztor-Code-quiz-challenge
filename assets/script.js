@@ -42,6 +42,9 @@ var score = 0
 var highScore = []
 var questionCounter = 0;
 var currentChoices = 0;
+answerEl.innerHTML = ""
+
+
 
 
 function startQuize() {
@@ -71,27 +74,32 @@ function generateQuestion() {
 //     displayQuestions.textContent = questions[currentQuestion]
     var hideStartQuize = document.querySelector('.start-holder');
     hideStartQuize.classList.add('hide');
-
-//     questionHolder.appendChild(displayQuestions);
-//     
-//    quizeData.forEach
     var currentQuestion = quizeData[questionCounter]
     var displayQuestions = document.createElement('h2');
     displayQuestions.textContent = currentQuestion.question;
     questionHolder.appendChild(displayQuestions);
     questionHolder.classList.remove('hide');
     console.log(displayQuestions);
+    questionCounter++;
+
+    // multipleChoices1.textContent = currentQuestion.answer[0]
+    // multipleChoices2.textContent = currentQuestion.answer[1] 
+    // multipleChoices3.textContent = currentQuestion.answer[2] 
+    // multipleChoices4.textContent = currentQuestion.answer[3] 
 
 
-    multipleChoices.textContent = currentQuestion.answer
-
-    var multipleChoices = document.createElement('button') 
-    answerEl.appendChild(multipleChoices)
-
-
-    
-
+    // answerEl.appendChild(multipleChoices)
 };
+// for each quesstion create 4 butons
+quizeData.forEach(function(choice, i) {
+    var answerBtn = document.createElement('button')
+    // answerBtn.textContent = quizeData.choices
+    answerBtn.textContent= 1 + "." + choice
+    answerBtn.appendChild(answerEl)
+    console.log(choice)
+    console.log(answerBtn)
+})
+
 
 function checkAnswer (event) {
     var correctAnswer = question[questionCounter].answer
@@ -103,10 +111,22 @@ function checkAnswer (event) {
         alert("wrong")
     }
 
-}
+    questionCounter++;
+    if (questionCounter === question.length) {
+        endgame();    
+    } else {
+        generateQuestion();
+    }
+};
+
+function endgame() {
+    alert("game over")
+
+};
 
 startEl.addEventListener('click', startQuize)
-answerEl.addEventListener('click', checkAnswer)
+answerBtn.addEventListener('click', checkAnswer)
+
 
 
 
