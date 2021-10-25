@@ -82,23 +82,19 @@ function generateQuestion() {
     console.log(displayQuestions);
     questionCounter++;
 
-    // multipleChoices1.textContent = currentQuestion.answer[0]
-    // multipleChoices2.textContent = currentQuestion.answer[1] 
-    // multipleChoices3.textContent = currentQuestion.answer[2] 
-    // multipleChoices4.textContent = currentQuestion.answer[3] 
-
-
-    // answerEl.appendChild(multipleChoices)
-};
-// for each quesstion create 4 butons
-quizeData.forEach(function(choice, i) {
+    // for each question create 4 butons
+    currentQuestion.choices.forEach(function(choice, i) {
     var answerBtn = document.createElement('button')
+    // answerBtn.classList.add()
     // answerBtn.textContent = quizeData.choices
-    answerBtn.textContent= 1 + "." + choice
-    answerBtn.appendChild(answerEl)
-    console.log(choice)
+    answerBtn.textContent= i + 1 + "." + choice
+    // answerBtn.appendChild(answerEl)
+    // console.log(choice)
     console.log(answerBtn)
 })
+
+};
+
 
 
 function checkAnswer (event) {
