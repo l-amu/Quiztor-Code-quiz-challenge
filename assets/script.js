@@ -119,12 +119,12 @@ function checkAnswer(answerBtn) {
         console.log("questioncounter", questionCounter)
         score += timerInnerText;
     } else {
-        // alert('it failed')
+        alert('it failed')
         score -= 10;
         timerInnerText = timerInnerText - 15;
     }
     // questionHolder.textContent = "";
-    // console.log(questionHolder)
+    console.log(score)
 
     if (questionCounter === questions.length -1) {
         resetState()
