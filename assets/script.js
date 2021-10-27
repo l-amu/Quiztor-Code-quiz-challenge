@@ -3,6 +3,7 @@ var viewHighScoreEl = document.querySelector("#highscore-Btn")
 var timerEl = document.getElementById("countdown")
 var questionHolder = document.getElementById('questions');
 var answerEl = document.getElementById('answers')
+var answerContainerEl = document.querySelector('.answer-container')
 var quizeData = [
     {
         question: "Commonly used data types Do not include:",
@@ -37,29 +38,28 @@ var quizeData = [
     }
 ]
 
-var timerInnerText = 70;
+var timerInnerText = 76;
 var score = 0
 var highScore = []
 var questionCounter = 0;
-var currentChoices = 0;
-answerEl.innerHTML = ""
+// var currentChoices = 0;
+// answerBtn.textContent = "";
+
 
 
 
 
 function startQuize() {
+    score = 0
     timer();
     generateQuestion();
 };
 //   check the statues of the game concurrent to the time
 function timer() {
     var timeInterval = setInterval(function () {
-        if (timerInnerText >= 60) {
+        if (timerInnerText > 1) {
             timerInnerText--;
             timerEl.textContent = "Time: " + timerInnerText;
-            
-
-
         } else {
             // alert ("game over");
             clearInterval(timeInterval);
@@ -69,51 +69,72 @@ function timer() {
 };
 
 function generateQuestion() {
-    
-//     
-//     displayQuestions.textContent = questions[currentQuestion]
+    // set currentquestion tracker
+    var currentQuestion = quizeData[questionCounter]
+    // hide the start button and it's text and show question
     var hideStartQuize = document.querySelector('.start-holder');
     hideStartQuize.classList.add('hide');
-    var currentQuestion = quizeData[questionCounter]
     var displayQuestions = document.createElement('h2');
     displayQuestions.textContent = currentQuestion.question;
     questionHolder.appendChild(displayQuestions);
     questionHolder.classList.remove('hide');
-    console.log(displayQuestions);
-    questionCounter++;
+    //  console.log(displayQuestions);
 
     // for each question create 4 butons
-    currentQuestion.choices.forEach(function(choice, i) {
-    var answerBtn = document.createElement('button')
-    // answerBtn.classList.add()
-    // answerBtn.textContent = quizeData.choices
-    answerBtn.textContent= i + 1 + "." + choice
-    // answerBtn.appendChild(answerEl)
-    // console.log(choice)
-    console.log(answerBtn)
-})
+    currentQuestion.choices.forEach(function (choice, i) {
+        var answerBtn = document.createElement('button')
+        answerBtn.classList.add('answerBtnStyle')
+        //  answerBtn.textContent= i + 1 + "." + choice
+        answerBtn.textContent = choice
+        answerContainerEl.classList.remove('hide')
+        answerEl.appendChild(answerBtn);
+        // console.log(choice)
+        console.log(answerBtn)
 
+        answerBtn.addEventListener('click', () => {
+            checkAnswer(answerBtn);
+        })
+    })
 };
 
+// reset/ start from beganing
+// reset/ start from beganing
+// function resetState() {
+//     while(answerBtn.firstChild) {
+//         answerBtn.removeChild(answerBtn.firstChild)
 
 
-function checkAnswer (event) {
-    var correctAnswer = question[questionCounter].answer
-    var currentAnswer = event.taget.textContent
+// }
 
-    if (currentAnswer === correctAnswer) {
-        alert("correctAnswer")     
+
+
+// loop through choice and return if the questions are finished
+function checkAnswer(answerBtn) {
+
+    console.log(answerBtn.textContent)
+    if (quizeData[questionCounter].answer === answerBtn.textContent) {
+        alert('it passed')
+        questionCounter++;
+        // generateQuestion()
+        console.log("questioncounter", questionCounter)
+        score += timerInnerText;
     } else {
-        alert("wrong")
+        // alert('it failed')
+        score -= 10;
+        timerInnerText = timerInnerText - 15;
     }
+    // questionHolder.textContent = "";
+    // console.log(questionHolder)
 
-    questionCounter++;
-    if (questionCounter === question.length) {
-        endgame();    
+    if (questionCounter === questions.length -1) {
+        resetState()
+        return;
     } else {
+        questionCounter++;
         generateQuestion();
     }
 };
+
 
 function endgame() {
     alert("game over")
@@ -121,13 +142,3 @@ function endgame() {
 };
 
 startEl.addEventListener('click', startQuize)
-answerBtn.addEventListener('click', checkAnswer)
-
-
-
-
-
-
-
-
-

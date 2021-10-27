@@ -77,11 +77,26 @@ body {
     position: relative;
     top: 100px;
     right: 20px;
-    
     border: 2px;
-    background-color: brown;
+    
 
 }
 
-.choice
+.answer-container {
+    background-color: saddlebrown;
+    display: flex;
+    position: relative;
+    
+}
+
+.answerBtnStyle {
+    color: white;
+    background-color: rebeccapurple;
+    position: relative;
+    top: 120px;
+    padding: 2px;
+    margin: 2px;
+    border-radius: 5px;
+    border-style: none;
+}
 

@@ -230,3 +230,17 @@ var
     border-radius: 5px;
 
 } */
+
+
+   // if (currentAnswer === correctAnswer) {
+    //     alert("correctAnswer")     
+    // } else {
+    //     alert("wrong")
+    // }
+
+    // questionCounter++;
+    // if (questionCounter === question.length) {
+    //     endgame();    
+    // } else {
+    //     generateQuestion();
+    // }
