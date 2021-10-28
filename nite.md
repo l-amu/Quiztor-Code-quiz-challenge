@@ -243,4 +243,18 @@ var
     //     endgame();    
     // } else {
     //     generateQuestion();
-    // }
+    // }                   
+
+
+    function timer() {
+    var timeInterval = setInterval(function () {
+        if (timerInnerText > 1) {
+            timerInnerText--;
+            timerEl.textContent = "Time: " + timerInnerText;
+        } else {
+            // alert ("game over");
+            clearInterval(timeInterval);
+        }
+    }, 1000);
+    console.log("timer", timeInterval)
+};
