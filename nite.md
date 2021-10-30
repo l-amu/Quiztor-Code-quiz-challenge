@@ -258,3 +258,38 @@ var
     }, 1000);
     console.log("timer", timeInterval)
 };
+
+
+
+
+event example
+var z = document.getElementById('test')
+console.log( quizeData[2].choices.length)
+function addNumber() {
+    for (let index = 0; index < quizeData[2].choices.length; index++) {
+         d = document.createElement('button')
+         d.setAttribute('value', 'yes')
+         console.log(d)
+        d.innerHTML = quizeData[2].choices[index]
+        d.onclick = test2
+
+        console.log()
+        z.appendChild(d)
+        
+        
+    }
+    // var a = event.target.value
+    // console.log(a)
+}
+addNumber()
+function test2(event) {
+    console.log(event.target.innerHTML)
+    console.log(event.target.value)
+
+    if (event.target.innerHTML !== "booleans") {
+        alert('false')
+
+    }else {
+        alert('true')
+    }
+}

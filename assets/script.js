@@ -9,14 +9,14 @@ var highScoreBtn = document.getElementById("highscore-Btn")
 var quizeData = [
     {
         question: "Commonly used data types Do not include:",
-        choices: ["strings", "booleans", "alerts", "numbers"],
-        answer: "alerts"
+        choices: ["a.strings", "b.booleans", "c.alerts", "d.numbers"],
+        answer: "c.alerts"
 
     },
     {
         question: "The condtion in an if/else statment is enclosed with______.",
-        choices: ["quotes", "curly brackets", "paranthesis", "square brackets"],
-        answer: "paranthesis"
+        choices: ["a.quotes", "b.curly brackets", "c.paranthesis", "d.square brackets"],
+        answer: "c.paranthesis"
     },
     {
         question: "Array in javascript can be used to store___________.",
@@ -39,6 +39,7 @@ var quizeData = [
         answer: "quotes"
     }
 ]
+
 
 var timerInnerText = 76;
 var score = 0
@@ -66,26 +67,29 @@ function generateQuestion() {
         timerEl.textContent = "Time: " + timerInnerText;
         if (timerInnerText <= 0) {
             clearInterval(timeInterval);
-        if (questioncou < question.length - 1) {
-            alert("game nedeed")
-            gameOver();
+        if (questionCounter < dataQuize.question.length - 1) {
+            alert("game ended")
+            
         }
             // alert ("game over");
-            clearInterval(timeInterval);
+            // clearInterval(timeInterval);
         }
     }, 1000);
     console.log("timer", timeInterval)
 
+    var currentQuestion = quizeData[questionCounter]
 
     // this empties the div for the next question
     questionHolder.innerHTML = ""
     answerEl.innerHTML = ""
     // set currentquestion tracker
-    var currentQuestion = quizeData[questionCounter]
+    console.log("questionCounter is ", questionCounter)
+    console.log(currentQuestion)
     // hide the start button and it's text and show question
     var hideStartQuize = document.querySelector('.start-holder');
     hideStartQuize.classList.add('hide');
     var displayQuestions = document.createElement('h2');
+
     displayQuestions.textContent = currentQuestion.question;
     // displayQuestions.textContent = currentQuestion
 
@@ -95,15 +99,15 @@ function generateQuestion() {
     //  console.log(displayQuestions);
 
     // for each question create 4 butons
-    currentQuestion.choices.forEach(function (choice) {
+    currentQuestion.choices.forEach(function (choices) {
         var answerBtn = document.createElement('button')
         answerBtn.classList.add('answerBtnStyle')
         //  answerBtn.textContent= i + 1 + "." + choice
-        answerBtn.textContent = choice
+        answerBtn.textContent = choices
         answerContainerEl.classList.remove('hide')
         answerEl.appendChild(answerBtn);
-        console.log("what is this doing?",choice)
-        console.log(answerBtn)
+        // console.log("what is this doing?",choice)
+        // console.log(answerBtn)
 
         answerBtn.addEventListener('click', () => {
             checkAnswer(answerBtn);
@@ -130,8 +134,8 @@ function checkAnswer(answerBtn) {
     console.log(score)
     questionCounter++;
 
-    if (questionCounter === question.length -1) {
-        gameOver();
+    if (questionCounter === quizeData.length -1) {
+        // gameOver();
         console.log("the end game function",gameOver)
     
     } else {
@@ -147,8 +151,8 @@ function checkAnswer(answerBtn) {
 
 
 function gameOver() {
-    timerDiv.classList.add("hide")
-    displayQuestions.classList.add("hide")
+    timerEl.classList.add("hide")
+    // displayQuestions.classList.add("hide")
 
 
 
@@ -156,4 +160,7 @@ function gameOver() {
 
 };
 
+
 startEl.addEventListener('click', startQuize)
+
+

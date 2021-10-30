@@ -7,17 +7,21 @@
 body {
     background-color: grey;
     margin: 50px;
+    overflow: hidden;
    
 
 }
-.container {
+.container-flex {
     display: flex;
     flex-wrap: wrap;
     /* flex-direction: row; */
     justify-content: center;
+    align-items: center;
+    align-content: center;
     background-color: thistle;
-    width: 800px;
-    height: 600px;
+    width: 100%;
+    height: 80vh;
+
    
 }
 
@@ -35,16 +39,16 @@ body {
     font-style: italic;
 }
 
-.start-holder {
+/* .start-holder {
     position: absolute;
     top: 300px;
     margin: 10px;
-    /* background-color: purple; */
+    background-color: purple;
     margin-right: 50px;
     height: 200px;
     width: 200px;
     text-align: center;
-}
+} */
 
 #start-quize {
     position: relative;
