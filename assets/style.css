@@ -7,7 +7,7 @@
 body {
     background-color: grey;
     margin: 50px;
-    overflow: hidden;
+    /* overflow: hidden; */
    
 
 }
@@ -25,14 +25,14 @@ body {
    
 }
 
-.Score-holder {
+/* .Score-holder {
     position: relative;
     top: 10px;
     right: 250px;
     color: purple;
     padding: 0px;
     margin: 0px;    
-}
+} */
 
 #highscore-Btn {
     color:rebeccapurple;
@@ -109,5 +109,18 @@ body {
 .answerBtnStyle:hover {
     color: #99B8BF;
     font-family: 'Archivo', sans-serif;
+}
+
+/* .Score-holder {
+    height: 45vh;
+    width: 95vh;
+    background-color: white;
+    border: 2px black;
+} */
+
+.IntialBox {
+    width: 10px;
+    height: 10px;
+
 }
 
