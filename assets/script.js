@@ -53,7 +53,7 @@ var quizeData = [
 
 var timerInnerText = 15;
 var score = 0
-// var highScore = []
+var highScoreArray = []
 var questionCounter = 0;
 var displayQuestions = document.createElement('h2');
 var scoreDiv = document.querySelector(".Score-holder")
@@ -161,16 +161,21 @@ function resultBlock() {
     formHolderEl.classList.remove('hide')
     // scoreDiv.style.display = "";
     var showResult = document.createElement('p')
-    showResult.textContent = 'Your final score is' + "" + score + ".";
+    showResult.innerHTML = 'Your final score is' + "" + score + ".";
+    scoreDiv.innerHTML = "";
     scoreDiv.appendChild(showResult)
     // for the intial submit button
     window.localStorage.setItem("high-score", score)
-
-    submitBtnEl.addEventListener('click', IntialFunction)
+    submitBtnEl.addEventListener('click', IntialFunction) 
 }
 
 function IntialFunction(event) {
     event.preventDefault();
+    //  var UserResult = {
+    //     intial = initialInput,
+    //     score = score
+    // }
+    // UserResult.push(UserResult)
     
     var initialInput = document.getElementById('frm1').value;
     if (initialInput === "") {
@@ -197,14 +202,16 @@ function getItem(initialInput) {
 }
 
 function goBack() {
-    showResult= "";
-    textArea = "";
-    console.log("clicked")
-    finalDivEl.style.display = 'none';
-    hideStartQuize.classList.remove('hide')
-    formHolderEl.style.display = 
+    // showResult= "";
+    // textArea = "";
+    // console.log("clicked")
+    // finalDivEl.style.display = 'none';
+    // hideStartQuize.classList.remove('hide')
+    // formHolderEl.style.display = 
     localStorage.clear();
-    startQuize();
+    // startQuize();
+    location.reload();
+
 
 }
 
