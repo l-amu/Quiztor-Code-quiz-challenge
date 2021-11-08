@@ -6,7 +6,15 @@ var questionHolder = document.getElementById('questions');
 var answerEl = document.getElementById('answers')
 var answerContainerEl = document.querySelector('.answer-container')
 var highScoreBtn = document.getElementById("highscore-Btn")
-// var submitBtnEl = document.getElementById("submitBtn")
+var submitBtnEl = document.getElementById("submitBtn")
+var finalDivEl = document.querySelector('.final-score')
+var textArea = document.getElementById("textarea-reslults")
+var formHolderEl = document.querySelector('.form-holder')
+var clearEl = document.getElementById('go-back')
+var backBtn = document.querySelector(".go-backBtn")
+var hideStartQuize = document.querySelector('.start-holder');
+
+
 
 var quizeData = [
     {
@@ -43,7 +51,7 @@ var quizeData = [
 ]
 
 
-var timerInnerText = 5;
+var timerInnerText = 15;
 var score = 0
 // var highScore = []
 var questionCounter = 0;
@@ -92,7 +100,6 @@ function generateQuestion() {
     answerEl.innerHTML = ""
     // console.log("current question",questionCounter)
     // hide the start button and it's text and show question
-    var hideStartQuize = document.querySelector('.start-holder');
     hideStartQuize.classList.add('hide');
     displayQuestions.innerHTML = currentQuestion.question;
     // displayQuestions.textContent = currentQuestion
@@ -141,12 +148,8 @@ function checkAnswer(answerBtn) {
     }
     // questionHolder.textContent = "";
     questionCounter++;
-
-
+    
     generateQuestion();
-
-
-
 };
 
 
@@ -163,41 +166,60 @@ function gameOver() {
 
 function resultBlock() {
     scoreDiv.classList.remove('hide');
-    var formHolderEl = document.querySelector('.form-holder')
     formHolderEl.classList.remove('hide')
     // scoreDiv.style.display = "";
     var showResult = document.createElement('p')
     showResult.textContent = 'Your final score is' + "" + score + ".";
     console.log(showResult)
     scoreDiv.appendChild(showResult)
+    // for the intial submit button
+    submitBtnEl.addEventListener('click', IntialFunction)
+}
+
+function IntialFunction(event) {
+    event.preventDefault();
     var Intialinput = document.getElementById('frm1').value;
-    if (Intialinput.value === "") {
+    if (Intialinput === "") {
         alert("Please Enter Your Intials")
         return;
     }
-    document.getElementById("submitBtn").addEventListener("submit", function (event) {
-        event.preventDefault();
-        console.log(Intialinput)
+    console.log("intial input is", Intialinput)
+        scoreDiv.classList.add('hide');
+        formHolderEl.classList.add('hide')
+        finalDivEl.classList.remove('hide')
+        backBtn.classList.remove('hide')
 
-    })
+        getItem(Intialinput);
+        
+
 }
-
 
 
 
 // localStorage.setItem('score')
-// function getItem() {
-//     var highscore = localStorage.setItem('score', score);
-//     console.log(highscore)
-//     var getEl = document.querySelector(".Score-holder");
-//     getEl.innerHTML = highscore
+function getItem(Intialinput) {
+    var highScore = score
+    localStorage.setItem('score', highScore);
+    if (localStorage.getItem("score")) {
+        textArea.textContent = Intialinput + "-" + highScore    
+    }
+    
+    // console.log(highscore)
+    // var getEl = document.querySelector(".Score-holder");
+    // getEl.innerHTML = highscore
 
-//     console.log("highscore results", getEl.innerHTML)
-// }
+    // console.log("highscore results", getEl.innerHTML)
+    // clearStorageEl.addEventListener("click", () => {
+    //     localStorage.clear();
+    //     generateQuestion();
 
-function highScore() {
-    scoreDiv.classList.add('hide');
-    formHolderEl.classList.add('hide')
+    // })
+}
+
+function goBack() {
+    hideStartQuize.classList.remove('hide');
+
+    localStorage.clear();
 
 
 
@@ -207,6 +229,9 @@ function highScore() {
 
 
 
+
+
+clearEl.addEventListener('click', goBack) 
 startEl.addEventListener('click', startQuize)
 
 
