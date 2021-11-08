@@ -130,7 +130,6 @@ function generateQuestion() {
 
 // loop through choice and return if the questions are finished
 function checkAnswer(answerBtn) {
-
     console.log(answerBtn.textContent)
     if (quizeData[questionCounter].answer === answerBtn.textContent) {
         alert('correct')
@@ -139,7 +138,6 @@ function checkAnswer(answerBtn) {
         score += 5
         console.log("checkanswer score", score)
         // timerInnerText = timerInnerText;
-
     } else {
         alert('wrong')
         // score -= 10;
@@ -154,10 +152,7 @@ function checkAnswer(answerBtn) {
 
 
 function gameOver() {
-
-
     timerDiv.classList.add("hide")
-
     displayQuestions.classList.add("hide")
     displayQuestions.style.display = "none"
     answerContainerEl.style.display = 'none'
@@ -170,8 +165,8 @@ function resultBlock() {
     // scoreDiv.style.display = "";
     var showResult = document.createElement('p')
     showResult.textContent = 'Your final score is' + "" + score + ".";
-    console.log(showResult)
     scoreDiv.appendChild(showResult)
+    showResult = "";
     // for the intial submit button
     window.localStorage.setItem("high-score", score)
 
@@ -219,12 +214,10 @@ function getItem(initialInput) {
 }
 
 function goBack() {
-    hideStartQuize.classList.remove('hide');
-    sessionStorage.clear()
-    // localStorage.clear();
-
-
-
+    console.log("clicked")
+    finalDivEl.style.display = 'none';
+    hideStartQuize.classList.remove('hide')
+    localStorage.clear();
 }
 
 

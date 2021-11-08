@@ -66,7 +66,7 @@ body {
 }
 
 #countdown {
-    position: relative;
+    /* position: relative; */
     top: 2px;
     padding: 2px;
     text-align: center;
@@ -78,28 +78,31 @@ body {
 }
 
 .question-container {
-    position: relative;
+    /* position: relative; */
     width: 400px;
     height: 100px;
-    top: 100px;
-    right: 20px;
+    margin-top: 50px;
+    margin-right: 20px;
     border: 2px;
-    
-
 }
+
+/* #go-back {
+    z-index: 100;
+} */
 
 .answer-container {
     /* background-color: saddlebrown; */
     display: flex;
-    position: relative;
+    flex-direction: column;
+    /* position: relative; */
     
 }
 
 .answerBtnStyle {
     color: white;
     background-color: rebeccapurple;
-    position: relative;
-    top: 120px;
+    /* position: relative; */
+    /* top: 120px; */
     padding: 2px;
     margin: 2px;
     border-radius: 5px;
