@@ -132,15 +132,12 @@ function generateQuestion() {
 function checkAnswer(answerBtn) {
     console.log(answerBtn.textContent)
     if (quizeData[questionCounter].answer === answerBtn.textContent) {
-        alert('correct')
         // generateQuestion()
         console.log("questioncounter upper", questionCounter)
         score += 5
         console.log("checkanswer score", score)
         // timerInnerText = timerInnerText;
     } else {
-        alert('wrong')
-        // score -= 10;
         timerInnerText = timerInnerText - 10;
         console.log("wrong answer check", score)
     }
@@ -166,7 +163,6 @@ function resultBlock() {
     var showResult = document.createElement('p')
     showResult.textContent = 'Your final score is' + "" + score + ".";
     scoreDiv.appendChild(showResult)
-    showResult = "";
     // for the intial submit button
     window.localStorage.setItem("high-score", score)
 
@@ -175,6 +171,7 @@ function resultBlock() {
 
 function IntialFunction(event) {
     event.preventDefault();
+    
     var initialInput = document.getElementById('frm1').value;
     if (initialInput === "") {
         alert("Please Enter Your Intials")
@@ -185,10 +182,7 @@ function IntialFunction(event) {
         formHolderEl.classList.add('hide')
         finalDivEl.classList.remove('hide')
         backBtn.classList.remove('hide')
-
         getItem(initialInput);
-        
-
 }
 
 
@@ -197,27 +191,21 @@ function IntialFunction(event) {
 function getItem(initialInput) {
     // var highScore = score
     // localStorage.setItem('score', highScore);
-    
-    textArea.textContent = initialInput + "-" + localStorage.getItem("high-score")    
-    
-    
-    // console.log(highscore)
-    // var getEl = document.querySelector(".Score-holder");
-    // getEl.innerHTML = highscore
+    textArea.textContent = initialInput + "-" + localStorage.getItem("high-score")   
 
-    // console.log("highscore results", getEl.innerHTML)
-    // clearStorageEl.addEventListener("click", () => {
-    //     localStorage.clear();
-    //     generateQuestion();
 
-    // })
 }
 
 function goBack() {
+    showResult= "";
+    textArea = "";
     console.log("clicked")
     finalDivEl.style.display = 'none';
     hideStartQuize.classList.remove('hide')
+    formHolderEl.style.display = 
     localStorage.clear();
+    startQuize();
+
 }
 
 
