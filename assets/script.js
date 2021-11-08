@@ -173,23 +173,25 @@ function resultBlock() {
     console.log(showResult)
     scoreDiv.appendChild(showResult)
     // for the intial submit button
+    window.localStorage.setItem("high-score", score)
+
     submitBtnEl.addEventListener('click', IntialFunction)
 }
 
 function IntialFunction(event) {
     event.preventDefault();
-    var Intialinput = document.getElementById('frm1').value;
-    if (Intialinput === "") {
+    var initialInput = document.getElementById('frm1').value;
+    if (initialInput === "") {
         alert("Please Enter Your Intials")
         return;
     }
-    console.log("intial input is", Intialinput)
+    console.log("intial input is", initialInput)
         scoreDiv.classList.add('hide');
         formHolderEl.classList.add('hide')
         finalDivEl.classList.remove('hide')
         backBtn.classList.remove('hide')
 
-        getItem(Intialinput);
+        getItem(initialInput);
         
 
 }
@@ -197,12 +199,12 @@ function IntialFunction(event) {
 
 
 // localStorage.setItem('score')
-function getItem(Intialinput) {
-    var highScore = score
-    localStorage.setItem('score', highScore);
-    if (localStorage.getItem("score")) {
-        textArea.textContent = Intialinput + "-" + highScore    
-    }
+function getItem(initialInput) {
+    // var highScore = score
+    // localStorage.setItem('score', highScore);
+    
+    textArea.textContent = initialInput + "-" + localStorage.getItem("high-score")    
+    
     
     // console.log(highscore)
     // var getEl = document.querySelector(".Score-holder");
@@ -218,8 +220,8 @@ function getItem(Intialinput) {
 
 function goBack() {
     hideStartQuize.classList.remove('hide');
-
-    localStorage.clear();
+    sessionStorage.clear()
+    // localStorage.clear();
 
 
 
