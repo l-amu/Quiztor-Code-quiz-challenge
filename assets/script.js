@@ -51,7 +51,7 @@ var quizeData = [
 ]
 
 
-var timerInnerText = 15;
+var timerInnerText = 76;
 var score = 0
 var highScoreArray = []
 var questionCounter = 0;
